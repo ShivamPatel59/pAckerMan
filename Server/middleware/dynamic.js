@@ -3,15 +3,15 @@ const Box = require('../model/boxmodel.js');
 let objects;
 
 async function readData() {
-    console.log("Read data function called");
+    // console.log("Read data function called");
     objects = await Box.find();
 }
 
 async function main() {
-    console.log("Main function called");
+    // console.log("Main function called");
     await readData();
-    var maxWeight = 100;
-    var containerVolume = 100;
+    var maxWeight = 1000;
+    var containerVolume = 1000;
     
     const packedEfficiency = maximizePackingEfficiency(objects, containerVolume, maxWeight);
     console.log('Maximized Packing Efficiency:', packedEfficiency);
@@ -86,7 +86,6 @@ function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
         packedObjects.push(objects[i]);
       }
     }
-  
     return packedObjects;
   }
 
