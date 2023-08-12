@@ -3,25 +3,50 @@ const Box = require('../model/boxmodel.js');
 let objects;
 
 async function readData() {
-    // console.log("Read data function called");
     objects = await Box.find();
 }
+
 
 async function main() {
     // console.log("Main function called");
     await readData();
     var maxWeight = 1000;
     var containerVolume = 1000;
+    function getTotals(obj){
+      let totPrice = 0, totWeight = 0, totVolume = 0;
+      obj.forEach((item) => {
+        totPrice += item.price;
+        totWeight += item.weight;
+        totVolume += item.volume;
+      });
+
+      return {totPrice, totWeight, totVolume};
+    }
     
     const packedEfficiency = maximizePackingEfficiency(objects, containerVolume, maxWeight);
-    console.log('Maximized Packing Efficiency:', packedEfficiency);
-
+    // console.log('Maximized Packing Efficiency:', packedEfficiency);
+    
     const maxProfit = maximizeProfit(objects, containerVolume, maxWeight);
-    console.log('Maximized Profit:', maxProfit);
+    // console.log('Maximized Profit:', maxProfit);
 
     const maxWeightPacking = maximizeWeight(objects, containerVolume, maxWeight);
-    console.log('Maximized Weight Packing:', maxWeightPacking);
+    // console.log('Maximized Weight Packing:', maxWeightPacking);
 
+    const findResult = () => {
+      let schemes = [];
+      const effScheme = getTotals(packedEfficiency);
+      const priceScheme = getTotals(maxProfit);
+      const weightScheme = getTotals(maxWeightPacking);
+
+      schemes.push(effScheme);
+      schemes.push(priceScheme);
+      schemes.push(weightScheme);
+
+      return schemes;
+    };
+
+    return {packedEfficiency, maxProfit, maxWeightPacking, result: findResult()}
+     
 }
 function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
     // Calculate density for each object
@@ -37,6 +62,7 @@ function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
     let packedObjects = [];
   
     for (let i = 0; i < objects.length; i++) {
+      if(objects[i].containerNum.length!=0)continue;
       if (packedVolume + objects[i].volume <= containerVolume && packedWeight + objects[i].weight <= maxWeight) {
         packedVolume += objects[i].volume;
         packedWeight += objects[i].weight;
@@ -61,6 +87,7 @@ function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
     let packedObjects = [];
   
     for (let i = 0; i < objects.length; i++) {
+      if(objects[i].containerNum.length!=0)continue;
       if (packedVolume + objects[i].volume <= containerVolume && packedWeight + objects[i].weight <= maxWeight) {
         packedVolume += objects[i].volume;
         packedWeight += objects[i].weight;
@@ -80,6 +107,7 @@ function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
     let packedObjects = [];
   
     for (let i = 0; i < objects.length; i++) {
+      if(objects[i].containerNum.length!=0)continue;
       if (packedVolume + objects[i].volume <= containerVolume && packedWeight + objects[i].weight <= maxWeight) {
         packedVolume += objects[i].volume;
         packedWeight += objects[i].weight;

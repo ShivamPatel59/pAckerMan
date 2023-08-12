@@ -1,15 +1,44 @@
 import React from "react";
 import "./styles/op.css";
+import Table from "./components/Table";
 const Op = () => {
   const [state, setstate] = React.useState({});
   const handleChange = (e) => {
     setstate({ ...state, [e.target.name]: e.target.value });
   };
+  const sendData = () => {
+    fetch("http://localhost:5000/addbox", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(state),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        getData();
+        console.log(data);
+      });
+  };
+  const [data, setData] = React.useState([]);
+  const getData = () => {
+    fetch("http://localhost:5000/getbox", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data.data);
+      });
+  };
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+  // console.log(data);
   return (
-    <div>
+    <div className="container ">
       <div className="ipBar">
         <div className="radio-container">
-        <p className="box">Box Type :</p>
+          <p className="box">Box Type :</p>
           <input
             type="radio"
             name="type"
@@ -62,29 +91,35 @@ const Op = () => {
           />
         </div>
       </div>
-      <button
-        type="button"
-        id="addbtn"
-        onClick={() => {
-          // console.log(state);
-          if (state.type && state.weight && state.price) {
-            fetch("http://localhost:5000/addbox", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(state),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                console.log(data);
-              });
-          } else {
-            alert("Please fill all the fields");
-          }
-          setstate({});
-        }}
-      >
-        Add
-      </button>
+      <div className="center-container">
+        <button
+          type="button"
+          id="addbtn"
+          className="btn"
+          onClick={() => {
+            // console.log(state);
+            if (state.type && state.weight && state.price) {
+              sendData();
+            } else {
+              alert("Please fill all the fields");
+            }
+            setstate({});
+          }}
+        >
+          Add
+        </button>
+        <a href="/result">
+          <button type="button" id="submitbtn" className="btn">
+            Submit
+          </button>
+        </a>
+      </div>
+
+      <Table data={data} />
+
+      {/* <div className="center-container">
+        
+      </div> */}
     </div>
   );
 };

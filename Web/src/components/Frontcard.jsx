@@ -1,10 +1,10 @@
 import React from "react"
-
+import "../styles/frontcard.css";
 export default function Frontcard(props) {
     return (
-        <a href={props.link}>
-
+        
         <div className="Front-card">
+            <a href={props.link}>
             <img src={props.img}/>
             <h3>{props.name}</h3>
             <div className="info-group">
@@ -14,7 +14,7 @@ export default function Frontcard(props) {
             <div className="info-group">
                 <p>{props.email}</p>
             </div>
-        </div>
         </a>
+        </div>
     )
 }

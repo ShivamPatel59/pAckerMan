@@ -1,6 +1,5 @@
 const Box=require('../model/boxmodel');
-
-
+const {main}=require('../middleware/dynamic');
 // Add a new box
 exports.addBox=async(req,res,next)=>{
     // console.log(req.body);
@@ -36,3 +35,23 @@ exports.getBox=async(req,res,next)=>{
         data : box
     })
 }
+
+exports.getResult = async(req, res, next) => {
+    const result = await main();
+    // console.log(result);
+    res.status(200).json({
+        success: true,
+        data: result
+    })
+}
+// update the containernum of box to container id
+exports.updateBox=async(req,res,next)=>{
+    const {id}=req.params;
+    const {containerNum}=req.body;
+    const result = await Box.findByIdAndUpdate(id,{containerNum:containerNum});
+    res.status(200).json({
+        success:true,
+        data:result
+    }) 
+}
+    

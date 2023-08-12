@@ -1,33 +1,68 @@
-.ipBar{
-    width: 100%;
-    height: 50px;
-    /* background-color: #f40000; */
-    border-bottom: 1px solid #cb2d2d;
-    margin-top: 20px;
-    left: 0;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
+.container{
+    overflow-y: hidden;
+    
 }
-.box{
-    margin-right: 50px;
-}
-.radio-container{
-    flex: 0.5;
+.ipBar {
     display: flex;
-    justify-content: center;
-    /* background-color: red; */
-    align-items: center;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.radio-container label{
-    margin-right: 25px;
-}
-.num-container{
-    flex: 0.5;
+.radio-container {
     display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
 }
-.num-container input{
-    margin-left: 15px;
+
+.radio-container label {
+    font-weight: bold;
+}
+
+.num-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.num-container label {
+    font-weight: bold;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    /* Adjust to the desired height */
+}
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
     margin-right: 20px;
+}
+
+
+.btn:hover {
+    background-color: #000001;
 }

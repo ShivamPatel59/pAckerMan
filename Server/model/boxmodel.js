@@ -14,9 +14,9 @@ const boxSchema=new mongoose.Schema({
         type:Number,
         required:[true,"Please enter the volume of the box"]
     },
-    inqueue:{
-        type:Boolean,
-        default : true
+    containerNum:{
+        type:String,
+        default:""
     }
 })
 
