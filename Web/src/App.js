@@ -10,13 +10,13 @@ export default function App() {
           <Frontcard
             name="ADD ITEMS"
             des="Add Items to new Container!"
-            img="/download.png"
+            img="/add.png"
             link="http://localhost:3000/operation"
           />
           <Frontcard
             name="HISTORY"
-            des="The history of packages shipped!."
-            img="/download_2.png"
+            des="Check Logs!"
+            img="/database.png"
             link="http://localhost:3000/history"
           />
         </div>

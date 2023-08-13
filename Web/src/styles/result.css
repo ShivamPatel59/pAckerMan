@@ -1,12 +1,12 @@
 /* styles/result.css */
+
+/* Common styles for all screen sizes */
 .result-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
   flex-direction: column;
+  padding: 20px;
 }
 
 .scheme-card {
@@ -15,16 +15,11 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 100%;
+  /* Card takes full width on mobile */
   text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-
-}
-
-.scheme-card-container{
-    display: flex;
-    flex-direction: row;
+  margin: 10px;
+  /* Adjust spacing for mobile */
 }
 
 .scheme-card h3 {
@@ -56,4 +51,14 @@
 
 .scheme-card button:hover {
   background-color: #0056b3;
+}
+
+/* Media query for screens up to 768px (typical mobile screens) */
+@media (max-width: 768px) {
+  .scheme-card-container {
+    flex-direction: column;
+    /* Stack cards vertically */
+    align-items: center;
+    /* Center cards horizontally */
+  }
 }

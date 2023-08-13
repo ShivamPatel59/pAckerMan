@@ -4,11 +4,12 @@
 .Front-card {
     font-family: 'Poppins', sans-serif;
     width: 16%;
-    max-height: 334px;
+    min-height: fit-content;
+    max-height: 350px;
     text-align: center;
     padding: 20px;
     margin: 50px;
-    background-color: #d88af7;
+    background-color: #96def4;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
@@ -18,12 +19,21 @@
 .Front-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #3431fd;
+    background-color: #933ff9;
     /* New background color on hover */
 }
 
-.Front-card>img {
-    max-width: 100%;
+.Front-card img {
+    width: 100%;
+    /* background: red; */
     border-radius: 10px;
-    max-height: 25vh;
+}
+
+@media (max-width: 768px) {
+    .Front-card {
+        flex-direction: column;
+        width: 70%;
+        padding: 35px;
+        height: fit-content;
+    }
 }

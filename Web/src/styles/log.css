@@ -1,41 +1,43 @@
-/* log.css */
-.Log {
-    margin-bottom: 10px;
-}
+/* styles/log.css */
 
-.Log-toggle {
-    display: none;
-}
-
-.Log-header {
-    background-color: #f0f0f0;
+/* Apply Montserrat font to details and ID */
+.Log-container {
+    background-color: #f7f7f7;
+    border-radius: 10px;
     padding: 10px;
-    cursor: pointer;
+    margin: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.Log-content {
-    display: none;
+.Log-details {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333333;
 }
 
-.Log-toggle:checked+.Log-header+.Log-content {
-    display: block;
+.Log-label {
+    font-weight: bold;
 }
 
-.Log-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+.Log-id {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #888888;
 }
 
-.Log-item {
-    padding: 10px;
-    border-top: 1px solid #ccc;
-}
+/* Media query for screens up to 768px */
+@media (max-width: 768px) {
+    .Log-container {
+        padding: 8px;
+        margin: 8px;
+    }
 
-.Log-item:first-child {
-    border-top: none;
+    .Log-details {
+        font-size: 14px;
+    }
+
+    .Log-id {
+        font-size: 12px;
+    }
 }

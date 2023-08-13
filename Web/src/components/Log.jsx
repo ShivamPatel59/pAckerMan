@@ -5,10 +5,12 @@ const Log = (containerNum) => {
     const data = containerNum.containerNum;
   return (
     <div>
-      <h1>{data._id.slice(0,6)}...</h1>
-      <h1>{data.price}</h1>
-      <h1>{data.volume}</h1>
-      <h1>{data.weight}</h1>
+      <ul>
+        <li>Box Id -{data._id.slice(0, 6)}...</li>
+        <li>Box Price{data.price}</li>
+        <li>Box Volume{data.volume}</li>
+        <li>Box Weight{data.weight}</li>
+      </ul>
     </div>
   );
 }
