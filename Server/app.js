@@ -21,6 +21,6 @@ app.get("/getbox", boxcontroller.getBox); // Get all the boxes from the database
 app.get("/getresult", boxcontroller.getResult); // Get the result from the database
 app.put("/updatebox/:id", boxcontroller.updateBox); // Update the container number of the box
 // console.log(dynamic.main().result);
-console.log(`Server is running on port ${process.env.PORT}`);
-app.listen(process.env.PORT, () => {
-});
+// console.log(`Server is running on port ${process.env.PORT}`);
+// app.listen(process.env.PORT, () => {
+// });
