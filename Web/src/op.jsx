@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/op.css";
 import Table from "./components/Table";
+import LoadingPage from "./components/LoadingPage";
 const Op = () => {
   const [state, setstate] = React.useState({});
   const handleChange = (e) => {
@@ -115,8 +116,7 @@ const Op = () => {
           </button>
         </a>
       </div>
-
-      <Table data={data} />
+      {data.length == 0 ? <LoadingPage /> : <Table data={data} />}
 
       {/* <div className="center-container">
         
