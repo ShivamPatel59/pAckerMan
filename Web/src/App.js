@@ -10,13 +10,13 @@ export default function App() {
         <Frontcard
           name="ADD ITEMS"
           des="Add Items to new Container!"
-          img="/download.png"
+          img="/add.png"
           link="http://packerman.vercel.app/operation"
         />
         <Frontcard
           name="HISTORY"
-          des="The history of packages shipped!."
-          img="/db.svg"
+          des="Check Logs!"
+          img="/database.png"
           link="http://packerman.vercel.app/history"
         />
       </div>

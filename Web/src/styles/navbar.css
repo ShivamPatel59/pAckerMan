@@ -3,6 +3,7 @@
 
 /* Navbar styles */
 .navbar {
+    width: 100%;
     background: linear-gradient(to right, #43007e, #5e2cf5);
     padding: 15px;
     text-align: center;

@@ -28,14 +28,7 @@ const Logs = () => {
       obj[item.containerNum] = [item];
     }
   });
-  const [expandedContainers, setExpandedContainers] = React.useState({});
-
-  const handleContainerClick = (containerNum) => {
-    setExpandedContainers((prevExpanded) => ({
-      ...prevExpanded,
-      [containerNum]: !prevExpanded[containerNum],
-    }));
-  };
+  
   return (
     <div className="history-container">
       <h1 className="Logs-title">History</h1>
@@ -44,20 +37,20 @@ const Logs = () => {
           <div
             className="Logs-card"
             key={index}
-            onClick={() => handleContainerClick(containerNum)}
+            // onClick={() => handleContainerClick(containerNum)}
           >
-            <h4 className="Container-title">Container {containerNum}</h4>
-            <ul
-              className={`Logs-list ${
-                expandedContainers[containerNum] ? "expanded" : ""
-              }`}
-            >
+            <h4 className="Container-title">Container ID - {containerNum}</h4>
+            
               {obj[containerNum].map((item, index) => (
-                <li key={index} className="Log-item">
-                  <Log containerNum={item} />
-                </li>
+                <>
+                  <li key={index} className="Log-item">
+                    <Log containerNum={item} />
+                  </li>
+                  {/* <li key={index} className="Log-item">
+                    <Log containerNum={item} />
+                  </li> */}
+                </>
               ))}
-            </ul>
           </div>
         ))}
       </div>
