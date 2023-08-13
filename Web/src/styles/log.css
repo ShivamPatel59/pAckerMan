@@ -1,0 +1,41 @@
+/* log.css */
+.Log {
+    margin-bottom: 10px;
+}
+
+.Log-toggle {
+    display: none;
+}
+
+.Log-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.Log-content {
+    display: none;
+}
+
+.Log-toggle:checked+.Log-header+.Log-content {
+    display: block;
+}
+
+.Log-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.Log-item {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.Log-item:first-child {
+    border-top: none;
+}

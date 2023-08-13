@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/result.css";
 import SkeletonComponent from "./Skeleton";
 import { v4 } from "uuid";
+import { Route } from "react-router";
 const Result = () => {
   const [containerNum, setContainerNum] = React.useState("");
   const [result, setResult] = React.useState([]);
@@ -40,6 +41,7 @@ const Result = () => {
       updateData(element._id, containerNum);
     });
     alert("Successfully Shipped");
+    window.location="/history"
   }
   
   return (

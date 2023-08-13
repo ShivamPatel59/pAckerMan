@@ -1,0 +1,44 @@
+.history-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Logs-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr ;
+    grid-template-rows: 2fr;
+    grid-template-areas: "logs logs logs";
+    grid-gap: 20px;
+    padding: 10px;
+}
+
+.Logs-card{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 25px;
+}
+
+
+.Logs-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Logs-list.expanded {
+    display: block;
+}
+
+.Log-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}

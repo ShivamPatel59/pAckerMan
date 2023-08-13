@@ -17,7 +17,7 @@ export default function App() {
             name="HISTORY"
             des="The history of packages shipped!."
             img="/download_2.png"
-            link=""
+            link="http://localhost:3000/history"
           />
         </div>
       </div>

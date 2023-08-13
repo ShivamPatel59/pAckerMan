@@ -26,7 +26,8 @@ const Op = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setData(data.data);
+        const filteredData = data.data.filter((item) => item.containerNum === "");
+        setData(filteredData);
       });
   };
 

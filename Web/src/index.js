@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Result from "./components/Result";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Op from "./op";
-// import Logs from "./components/Logs";
+import Logs from "./components/Logs";
 
 ReactDOM.render(
   <>
