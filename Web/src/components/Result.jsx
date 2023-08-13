@@ -7,7 +7,7 @@ const Result = () => {
   const [containerNum, setContainerNum] = React.useState("");
   const [result, setResult] = React.useState([]);
   const getData = () => {
-    fetch("http://localhost:5000/getresult", {
+    fetch("https://packerman-backend.onrender.com/getresult", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -22,7 +22,7 @@ const Result = () => {
   }, []);
 
   const updateData = (id, containerNum) => {
-    fetch(`http://localhost:5000/updatebox/${id}`, {
+    fetch(`https://packerman-backend.onrender.com/updatebox/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -7,7 +7,7 @@ const Op = () => {
     setstate({ ...state, [e.target.name]: e.target.value });
   };
   const sendData = () => {
-    fetch("http://localhost:5000/addbox", {
+    fetch("https://packerman-backend.onrender.com/addbox", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(state),
@@ -20,13 +20,15 @@ const Op = () => {
   };
   const [data, setData] = React.useState([]);
   const getData = () => {
-    fetch("http://localhost:5000/getbox", {
+    fetch("https://packerman-backend.onrender.com/getbox", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((data) => {
-        const filteredData = data.data.filter((item) => item.containerNum === "");
+        const filteredData = data.data.filter(
+          (item) => item.containerNum === ""
+        );
         setData(filteredData);
       });
   };
