@@ -121,7 +121,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "vercel-build": "echo hello"  
   },
   "keywords": [],
   "author": "",
