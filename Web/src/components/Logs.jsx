@@ -1,6 +1,7 @@
 import React from "react";
 import Log from "./Log";
 import "../styles/logs.css";
+import LoadingPage from "./LoadingPage";
 
 const Logs = () => {
   const [data, setData] = React.useState([]);
@@ -28,19 +29,22 @@ const Logs = () => {
       obj[item.containerNum] = [item];
     }
   });
-  
+
   return (
     <div className="history-container">
       <h1 className="Logs-title">History</h1>
-      <div className="Logs-container">
-        {Object.keys(obj).map((containerNum, index) => (
-          <div
-            className="Logs-card"
-            key={index}
-            // onClick={() => handleContainerClick(containerNum)}
-          >
-            <h4 className="Container-title">Container ID - {containerNum}</h4>
-            
+      {data.length === 0 ? (
+        <LoadingPage />
+      ) : (
+        <div className="Logs-container">
+          {Object.keys(obj).map((containerNum, index) => (
+            <div
+              className="Logs-card"
+              key={index}
+              // onClick={() => handleContainerClick(containerNum)}
+            >
+              <h4 className="Container-title">Container ID - {containerNum}</h4>
+
               {obj[containerNum].map((item, index) => (
                 <>
                   <li key={index} className="Log-item">
@@ -51,9 +55,10 @@ const Logs = () => {
                   </li> */}
                 </>
               ))}
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
