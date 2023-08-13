@@ -16,7 +16,7 @@ export default function App() {
         <Frontcard
           name="HISTORY"
           des="The history of packages shipped!."
-          img="/download_2.png"
+          img="/db.svg"
           link="http://packerman.vercel.app/history"
         />
       </div>
