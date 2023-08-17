@@ -1,0 +1,98 @@
+
+.home-container{
+  background-image: url("../../public/bg.svg");
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-mini-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  width: 90vw;
+}
+.home-header{
+  flex: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.home-btn{
+  margin-top: 2rem;
+}
+
+.home-header h1{
+  font-size: 5rem;
+  color: white;
+  margin: 0;
+}
+.home-header p{
+  color: white;
+}
+
+
+.home-use{
+  flex: 0.4;
+  color: white;
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 65vh;
+  border-radius: 10px;
+}
+
+.home-use ul li {
+  list-style: square;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.cta-btn{
+  padding: 10px 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-btn:hover{
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
