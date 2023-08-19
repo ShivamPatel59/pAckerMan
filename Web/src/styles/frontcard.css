@@ -28,7 +28,9 @@
     /* background: red; */
     border-radius: 10px;
 }
-
+/* .Front-card .info-group {
+    color: yellow;
+} */
 @media (max-width: 768px) {
     .Front-card {
         flex-direction: column;
