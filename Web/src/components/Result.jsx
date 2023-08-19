@@ -59,8 +59,8 @@ const Result = () => {
               <h3>Scheme 1</h3>
               <h5>Optimised by Packing Efficiency</h5>
               <p>Total Profit: {result.result[0].totPrice}</p>
-              <p>Total Volume occupied: {result.result[0].totPrice}</p>
-              <p>Total containter weight: {result.result[0].totPrice} kg</p>
+              <p>Total Volume occupied: {result.result[0].totVolume}</p>
+              <p>Total containter weight: {result.result[0].totWeight} kg</p>
             </>
           )}
           {/* <p>Packing Efficienty: 98%</p> */}
@@ -81,8 +81,8 @@ const Result = () => {
               <h3>Scheme 2</h3>
               <h5>Optimised by Price</h5>
               <p>Total Profit: {result.result[1].totPrice}</p>
-              <p>Total Volume occupied: {result.result[1].totPrice}</p>
-              <p>Total containter weight: {result.result[1].totPrice} kg</p>
+              <p>Total Volume occupied: {result.result[1].totVolume}</p>
+              <p>Total containter weight: {result.result[1].totWeight} kg</p>
             </>
           )}
           <button
@@ -101,8 +101,8 @@ const Result = () => {
               <h3>Scheme 3</h3>
               <h5>Optimised by Maximum Weight</h5>
               <p>Total Profit: {result.result[2].totPrice}</p>
-              <p>Total Volume occupied: {result.result[2].totPrice}</p>
-              <p>Total containter weight: {result.result[2].totPrice} kg</p>
+              <p>Total Volume occupied: {result.result[2].totVolume}</p>
+              <p>Total containter weight: {result.result[2].totWeight} kg</p>
             </>
           )}
 
