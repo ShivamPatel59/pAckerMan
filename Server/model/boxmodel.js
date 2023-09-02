@@ -17,6 +17,10 @@ const boxSchema=new mongoose.Schema({
     containerNum:{
         type:String,
         default:""
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now
     }
 })
 

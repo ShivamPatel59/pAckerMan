@@ -17,7 +17,7 @@ const Table = ({ data }) => {
           <tbody>
             {data.map((it) => (
               <tr key={it._id}>
-                {console.log(it)}
+                {/* {console.log(it)} */}
                 <td>{ind++}</td>
                 <td>{it.price}</td>
                 <td>{it.weight}</td>

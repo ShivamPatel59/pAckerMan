@@ -7,8 +7,9 @@ const Op = () => {
   const handleChange = (e) => {
     setstate({ ...state, [e.target.name]: e.target.value });
   };
+  const [loading, setloading] = React.useState(true);
   const sendData = () => {
-    fetch("https://packerman-backend.onrender.com/addbox", {
+    fetch("http://localhost:5000/addbox", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(state),
@@ -16,12 +17,12 @@ const Op = () => {
       .then((res) => res.json())
       .then((data) => {
         getData();
-        console.log(data);
+        // console.log(data);
       });
   };
   const [data, setData] = React.useState([]);
   const getData = () => {
-    fetch("https://packerman-backend.onrender.com/getbox", {
+    fetch("http://localhost:5000/getbox", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -31,6 +32,7 @@ const Op = () => {
           (item) => item.containerNum === ""
         );
         setData(filteredData);
+    setloading(false);
       });
   };
 
@@ -102,9 +104,13 @@ const Op = () => {
           className="btn"
           onClick={() => {
             // console.log(state);
-            if (state.type && state.weight && state.price) {
+            if(data.length>=30){
+              alert("Inventory is full");
+            }
+            else if (state.type && state.weight && state.price) {
               sendData();
-            } else {
+            } 
+            else {
               alert("Please fill all the fields");
             }
             setstate({});
@@ -118,7 +124,7 @@ const Op = () => {
           </button>
         </a>
       </div>
-      {data.length == 0 ? <LoadingPage /> : <Table data={data} />}
+      {loading ? <LoadingPage /> : <Table data={data} />}
 
       {/* <div className="center-container">
         

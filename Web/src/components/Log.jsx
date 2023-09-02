@@ -1,18 +1,69 @@
-import React from 'react'
+import "../styles/log.css"; // Import the CSS file for styling
+import React, { useEffect, useState } from "react";
+import LoadingPage from "./LoadingPage"; // Import your LoadingPage component
 
-const Log = (containerNum) => {
-    console.log(containerNum);
-    const data = containerNum.containerNum;
+function LogPage() {
+  const [logs, setLogs] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/getlog", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // Sort logs by createdAt timestamp in decreasing order
+        const sortedLogs = data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setLogs(sortedLogs);
+      });
+  }, []);
+
   return (
-    <div>
-      <ul>
-        <li>Box Id -{data._id.slice(0, 6)}...</li>
-        <li>Box Price{data.price}</li>
-        <li>Box Volume{data.volume}</li>
-        <li>Box Weight{data.weight}</li>
-      </ul>
+    <div className="log-container">
+      <h1>History</h1>
+      {logs.length === 0 ? (
+        <LoadingPage />
+      ) : (
+        <table className="log-table">
+          <thead>
+            <tr>
+              <th>Container ID</th>
+              <th>Boxes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {logs.map((log) => (
+              <tr key={log._id}>
+                <td>
+                  ID: {log.containerId}
+                  <br />
+                  Time: {new Date(log.createdAt).toLocaleString()}{" "}
+                  {/* Format the timestamp */}
+                </td>
+                <td>
+                  <ul>
+                    {log.boxes.map((box) => (
+                      <li key={box._id}>
+                        <strong>Box ID:</strong> {box._id}
+                        <br />
+                        <strong>Price:</strong> {box.price}
+                        <br />
+                        <strong>Weight:</strong> {box.weight}
+                        <br />
+                        <strong>Volume:</strong> {box.volume}
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
 
-export default Log
+export default LogPage;

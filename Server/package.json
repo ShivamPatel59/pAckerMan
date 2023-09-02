@@ -74,7 +74,7 @@
     "mquery": "^5.0.0",
     "ms": "^2.0.0",
     "negotiator": "^0.6.3",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.1",
     "nopt": "^1.0.10",
     "normalize-path": "^3.0.0",
     "object-inspect": "^1.12.3",
@@ -116,15 +116,9 @@
     "vary": "^1.1.2",
     "webidl-conversions": "^6.1.0",
     "whatwg-url": "^8.7.0"
-<<<<<<< HEAD
-=======
-  },
-   "engines": {
-    "node": "14.x"
->>>>>>> 5c1872d406c60c113cb909300c020b2725d12ff5
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",

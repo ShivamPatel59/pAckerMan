@@ -6,7 +6,7 @@ import LoadingPage from "./LoadingPage";
 const Logs = () => {
   const [data, setData] = React.useState([]);
   const getData = () => {
-    fetch("https://packerman-backend.onrender.com/getbox", {
+    fetch("http://localhost:5000/getbox", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })

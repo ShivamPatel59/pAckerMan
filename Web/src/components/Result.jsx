@@ -7,7 +7,7 @@ const Result = () => {
   const [containerNum, setContainerNum] = React.useState("");
   const [result, setResult] = React.useState([]);
   const getData = () => {
-    fetch("https://packerman-backend.onrender.com/getresult", {
+    fetch("http://localhost:5000/getresult", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -17,12 +17,26 @@ const Result = () => {
       });
   };
   React.useEffect(() => {
-    setContainerNum(v4().slice(0, 12))
+    setContainerNum(v4().slice(0, 12));
     getData();
   }, []);
+  // console.log(result)
+
+  //Delete box from database
+  const deleteData = (id) => {
+    fetch(`http://localhost:5000/deletebox/${id}`, {
+      method: "DELETE",
+    })
+
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log("Deleted");
+        // console.log(data);
+      });
+  };
 
   const updateData = (id, containerNum) => {
-    fetch(`https://packerman-backend.onrender.com/updatebox/${id}`, {
+    fetch(`http://localhost:5000/updatebox/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -35,15 +49,35 @@ const Result = () => {
       });
   };
 
-  console.log(containerNum);
+  //Add boxes to log
+  const addLog = (containerNum, obj) => {
+    fetch("http://localhost:5000/addlog", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        containerNum: containerNum,
+        boxes: obj,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log("Added to log");
+        // console.log(data);
+      });
+  };
+
+  // console.log(containerNum);
+
   function handleClick(obj) {
+    // console.log("obj");
+    addLog(containerNum, obj);
     obj.forEach((element) => {
-      updateData(element._id, containerNum);
+      deleteData(element._id);
     });
     alert("Successfully Shipped");
-    window.location="/history"
+    window.location = "/history";
   }
-  
+
   return (
     <div className="result-container">
       to be shipped using container {containerNum}
