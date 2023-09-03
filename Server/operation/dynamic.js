@@ -91,11 +91,16 @@ function maximizeProfit(objects, containerVolume, maxWeight) {
 function maximizeWeight(objects, containerVolume, maxWeight) {
   let maxWeightPacked = 0;
   let currentWeight = 0;
+  let currentprofit=0;
   let bestWeightConfiguration = [];
 
   function backtrack(itemIndex, packedVolume, packedWeight, currentWeightConfiguration) {
     if (itemIndex >= objects.length) {
       if (currentWeight > maxWeightPacked) {
+        maxWeightPacked = currentWeight;
+        bestWeightConfiguration = [...currentWeightConfiguration];
+      }
+      else if(currentWeight==maxWeightPacked && currentprofit>maxProfit){
         maxWeightPacked = currentWeight;
         bestWeightConfiguration = [...currentWeightConfiguration];
       }
@@ -107,6 +112,7 @@ function maximizeWeight(objects, containerVolume, maxWeight) {
       packedVolume += objects[itemIndex].volume;
       packedWeight += objects[itemIndex].weight;
       currentWeight += objects[itemIndex].weight;
+      currentprofit+=objects[itemIndex].price;
       currentWeightConfiguration.push(objects[itemIndex]);
 
       backtrack(itemIndex + 1, packedVolume, packedWeight, currentWeightConfiguration);
@@ -114,6 +120,7 @@ function maximizeWeight(objects, containerVolume, maxWeight) {
       packedVolume -= objects[itemIndex].volume;
       packedWeight -= objects[itemIndex].weight;
       currentWeight -= objects[itemIndex].weight;
+      currentprofit-=objects[itemIndex].price;
       currentWeightConfiguration.pop();
     }
 
@@ -172,6 +179,7 @@ function maximizeWeight(objects, containerVolume, maxWeight) {
 function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
   let maxVolumePacked = 0;
   let currentVolume = 0;
+  let currentprofit=0;
   let bestVolumeConfiguration = [];
 
   function backtrack(
@@ -185,6 +193,11 @@ function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
         maxVolumePacked = currentVolume;
         bestVolumeConfiguration = [...currentVolumeConfiguration];
       }
+      else if(currentVolume==maxVolumePacked && currentprofit>maxProfit){
+        maxVolumePacked = currentVolume;
+        bestVolumeConfiguration = [...currentVolumeConfiguration];
+      }
+
       return;
     }
 
@@ -195,6 +208,7 @@ function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
       packedVolume += objects[itemIndex].volume;
       packedWeight += objects[itemIndex].weight;
       currentVolume += objects[itemIndex].volume;
+      currentprofit+=objects[itemIndex].price;
       currentVolumeConfiguration.push(objects[itemIndex]);
 
       backtrack(
@@ -207,6 +221,7 @@ function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
       packedVolume -= objects[itemIndex].volume;
       packedWeight -= objects[itemIndex].weight;
       currentVolume -= objects[itemIndex].volume;
+      currentprofit-=objects[itemIndex].price;
       currentVolumeConfiguration.pop();
     }
 
