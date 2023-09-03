@@ -117,6 +117,9 @@
     "webidl-conversions": "^6.1.0",
     "whatwg-url": "^8.7.0"
   },
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "scripts": {
     "start": "nodemon app.js"
   },
