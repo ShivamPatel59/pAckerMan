@@ -11,9 +11,6 @@ export default function Frontcard(props) {
                 {/* <img src="./images/phone-icon.png" /> */}
                 <p>{props.des}</p>
             </div>
-            <div className="info-group">
-                <p>{props.email}</p>
-            </div>
         </a>
         </div>
     )
