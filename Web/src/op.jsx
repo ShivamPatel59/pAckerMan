@@ -111,7 +111,7 @@ const Op = () => {
             } else {
               alert("Please fill all the fields");
             }
-            setstate({});
+            // setstate({});
           }}
         >
           Add
