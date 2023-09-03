@@ -20,6 +20,20 @@ const Op = () => {
         // console.log(data);
       });
   };
+
+  // Delete box from database
+  const deleteData = (id) => {
+    fetch(`https://packerman-backend.onrender.com/deletebox/${id}`, {
+      method: "DELETE",
+    })
+
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log("Deleted");
+        // console.log(data);
+      });
+  };
+  
   const [data, setData] = React.useState([]);
   const getData = () => {
     fetch("https://packerman-backend.onrender.com/getbox", {
