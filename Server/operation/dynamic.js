@@ -87,17 +87,19 @@ function maximizeProfit(objects, containerVolume, maxWeight) {
   return bestConfiguration;
 }
 
-// Backtracking algorithm for maximizeWeight without density
+// Backtracking algorithm for maximizeWeight 
 function maximizeWeight(objects, containerVolume, maxWeight) {
   let maxWeightPacked = 0;
   let currentWeight = 0;
   let currentprofit=0;
+  let maxProfit = 0;
   let bestWeightConfiguration = [];
 
   function backtrack(itemIndex, packedVolume, packedWeight, currentWeightConfiguration) {
     if (itemIndex >= objects.length) {
       if (currentWeight > maxWeightPacked) {
         maxWeightPacked = currentWeight;
+        maxProfit = currentprofit;
         bestWeightConfiguration = [...currentWeightConfiguration];
       }
       else if(currentWeight==maxWeightPacked && currentprofit>maxProfit){
@@ -175,11 +177,12 @@ function maximizeWeight(objects, containerVolume, maxWeight) {
 // }
 
 
-// // Backtracking algorithm for maximizePackingEfficiency without density
+// // Backtracking algorithm for maximizePackingEfficiency
 function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
   let maxVolumePacked = 0;
   let currentVolume = 0;
   let currentprofit=0;
+  let maxProfit = 0;
   let bestVolumeConfiguration = [];
 
   function backtrack(
@@ -190,6 +193,7 @@ function maximizePackingEfficiency(objects, containerVolume, maxWeight) {
   ) {
     if (itemIndex >= objects.length) {
       if (currentVolume > maxVolumePacked) {
+        maxProfit = currentprofit;
         maxVolumePacked = currentVolume;
         bestVolumeConfiguration = [...currentVolumeConfiguration];
       }
