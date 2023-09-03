@@ -35,7 +35,6 @@ const Table = ({ data, deleteData }) => {
               <td>{it.weight}</td>
               <td>{it.volume}</td>
               <td>
-                {/* Add a delete button for each row */}
                 <button className="delete-btn"
                   onClick={(e) => {
                     e.stopPropagation(); // Prevent row click event from firing

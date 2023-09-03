@@ -9,7 +9,7 @@ const Op = () => {
   };
   const [loading, setloading] = React.useState(true);
   const sendData = () => {
-    fetch("https://packerman-backend.onrender.com/addbox", {
+    fetch("http://localhost:5000/addbox", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(state),
@@ -22,7 +22,7 @@ const Op = () => {
   };
   const [data, setData] = React.useState([]);
   const getData = () => {
-    fetch("https://packerman-backend.onrender.com/getbox", {
+    fetch("http://localhost:5000/getbox", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -37,7 +37,7 @@ const Op = () => {
   };
   // Delete box from database
   const deleteData = (id) => {
-    fetch(`https://packerman-backend.onrender.com/deletebox/${id}`, {
+    fetch(`http://localhost:5000/deletebox/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -110,7 +110,9 @@ const Op = () => {
           />
         </div>
         <p className="warning">*Maximum weight of the container is 600 Kg.</p>
-        <p className="warning">*Maximum volume of the container is 500 cubic metres</p>
+        <p className="warning">
+          *Maximum volume of the container is 500 cubic metres
+        </p>
       </div>
       <div className="center-container">
         <button
