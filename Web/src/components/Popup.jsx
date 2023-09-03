@@ -1,21 +1,20 @@
-import React, { useState } from "react";
-import "../styles/popup.css"; // Create a CSS file for styling your popup
+// Popup.js
 
-function Popup({ isOpen, onClose, children }) {
-  const popupStyle = {
-    display: isOpen ? "block" : "none",
-  };
+import React from "react";
+import "../styles/popup.css"; // Create a CSS file for styling the popup
 
+const Popup = ({ id, onClose }) => {
   return (
-    <div className="popup" style={popupStyle}>
+    <div className="popup">
       <div className="popup-content">
-        <button className="close-button" onClick={onClose}>
-          Close
-        </button>
-        {children}
+        <span className="close-button" onClick={onClose}>
+          &times;
+        </span>
+        <h2>Box Id</h2>
+        <p>{id}</p>
       </div>
     </div>
   );
-}
+};
 
 export default Popup;

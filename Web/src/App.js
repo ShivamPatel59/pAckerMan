@@ -11,11 +11,13 @@ export default function App() {
           name="ADD ITEMS"
           img="/add.png"
           link="http://localhost:3000/operation"
+          des="Add items to the Inventory"
         />
         <Frontcard
           name="HISTORY"
           img="/database.png"
           link="http://localhost:3000/history"
+          des="Shipment History"
         />
       </div>
     </div>

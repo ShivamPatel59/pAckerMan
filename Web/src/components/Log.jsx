@@ -37,9 +37,10 @@ function LogPage() {
             {logs.map((log) => (
               <tr key={log._id}>
                 <td>
-                  ID: {log.containerId}
+                  <strong>ID : </strong> {log.containerId}
                   <br />
-                  Time: {new Date(log.createdAt).toLocaleString()}{" "}
+                  <strong>Time : </strong>{" "}
+                  {new Date(log.createdAt).toLocaleString()}{" "}
                   {/* Format the timestamp */}
                 </td>
                 <td>

@@ -1,6 +1,6 @@
 const Box = require("../model/boxmodel");
 const Log = require("../model/logmodel");
-const { main } = require("../middleware/dynamic");
+const { main } = require("../operation/dynamic");
 // Add a new box
 exports.addBox = async (req, res, next) => {
   // console.log(req.body);
@@ -81,7 +81,6 @@ exports.addLog = async (req, res, next) => {
   });
 };
 
-
 // Get all the logs
 exports.getLog = async (req, res, next) => {
   const log = await Log.find();
@@ -89,4 +88,4 @@ exports.getLog = async (req, res, next) => {
     success: true,
     data: log,
   });
-}
+};

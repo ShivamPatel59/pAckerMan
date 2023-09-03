@@ -80,7 +80,7 @@ const Result = () => {
 
   return (
     <div className="result-container">
-      to be shipped using container {containerNum}
+      to be shipped using container <strong>{containerNum}</strong>
       <div className="result-title">
         <h1>Choose your scheme</h1>
       </div>

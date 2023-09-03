@@ -7,6 +7,12 @@
     border-radius: 10px;
     background-color: #f0f0f0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    /* Set a maximum width for the container */
+    overflow-x: auto;
+    /* align-self: center; */
+    /* Enable horizontal scrolling if needed */
+    
 }
 
 /* Title */
@@ -14,6 +20,7 @@
     font-size: 24px;
     margin-bottom: 20px;
     color: #333;
+    text-align: center;
 }
 
 /* Table */
@@ -21,6 +28,8 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    table-layout: fixed;
+    /* Fix the table layout */
 }
 
 .log-table th,
@@ -28,6 +37,12 @@
     border: 1px solid #ccc;
     padding: 12px;
     text-align: left;
+    white-space: nowrap;
+    /* Prevent text from wrapping in table cells */
+    overflow: hidden;
+    /* Hide overflowing content */
+    text-overflow: ellipsis;
+    /* Show ellipsis (...) for overflowing content */
 }
 
 .log-table th {
@@ -77,6 +92,8 @@
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
+    display: block;
+    /* Ensure the button takes the full width on small screens */
 }
 
 .close-button:hover {
@@ -84,4 +101,20 @@
     /* Darker shade of orange on hover */
 }
 
-/* Adjust colors, fonts, and styles as needed */
+/* Responsive Styles */
+
+/* Adjust font sizes and padding for smaller screens */
+@media screen and (max-width: 600px) {
+    .log-container {
+        padding: 10px;
+    }
+
+    .log-container h1 {
+        font-size: 20px;
+    }
+
+    .log-table th,
+    .log-table td {
+        padding: 8px;
+    }
+}

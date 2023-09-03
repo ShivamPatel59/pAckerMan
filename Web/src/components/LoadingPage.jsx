@@ -5,7 +5,9 @@ const LoadingPage = () => {
   return (
     <div className="loading-page">
       <div className="loader"></div>
-      <p>Loading...</p>
+      <div className="descr">
+        Loading...
+      </div>
     </div>
   );
 };
