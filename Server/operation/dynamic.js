@@ -11,8 +11,8 @@ async function readData() {
 async function main() {
     // console.log("Main function called");
     await readData();
-    var maxWeight = 1000;
-    var containerVolume = 1000;
+    var maxWeight = 600;
+    var containerVolume = 500;
     function getTotals(obj){
       let totPrice = 0, totWeight = 0, totVolume = 0;
       obj.forEach((item) => {

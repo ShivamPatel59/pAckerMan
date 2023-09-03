@@ -8,7 +8,7 @@ exports.addBox = async (req, res, next) => {
   // console.log(price);
   let volume = 0;
   if (type == "small") {
-    volume = 10;
+    volume = 15;
   } else if (type == "medium") {
     volume = 20;
   } else if (type == "large") {
