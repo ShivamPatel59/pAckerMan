@@ -6,7 +6,7 @@ function LogPage() {
   const [logs, setLogs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/getlog", {
+    fetch("https://packerman-backend.onrender.com/getlog", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })

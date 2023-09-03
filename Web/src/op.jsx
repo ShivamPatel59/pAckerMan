@@ -9,7 +9,7 @@ const Op = () => {
   };
   const [loading, setloading] = React.useState(true);
   const sendData = () => {
-    fetch("http://localhost:5000/addbox", {
+    fetch("https://packerman-backend.onrender.com/addbox", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(state),
@@ -22,7 +22,7 @@ const Op = () => {
   };
   const [data, setData] = React.useState([]);
   const getData = () => {
-    fetch("http://localhost:5000/getbox", {
+    fetch("https://packerman-backend.onrender.com/getbox", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -32,7 +32,7 @@ const Op = () => {
           (item) => item.containerNum === ""
         );
         setData(filteredData);
-    setloading(false);
+        setloading(false);
       });
   };
 
@@ -104,13 +104,11 @@ const Op = () => {
           className="btn"
           onClick={() => {
             // console.log(state);
-            if(data.length>=30){
+            if (data.length >= 30) {
               alert("Inventory is full");
-            }
-            else if (state.type && state.weight && state.price) {
+            } else if (state.type && state.weight && state.price) {
               sendData();
-            } 
-            else {
+            } else {
               alert("Please fill all the fields");
             }
             setstate({});

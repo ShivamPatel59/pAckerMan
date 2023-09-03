@@ -7,7 +7,7 @@ const Result = () => {
   const [containerNum, setContainerNum] = React.useState("");
   const [result, setResult] = React.useState([]);
   const getData = () => {
-    fetch("http://localhost:5000/getresult", {
+    fetch("https://packerman-backend.onrender.com/getresult", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -24,10 +24,9 @@ const Result = () => {
 
   //Delete box from database
   const deleteData = (id) => {
-    fetch(`http://localhost:5000/deletebox/${id}`, {
+    fetch(`https://packerman-backend.onrender.com/deletebox/${id}`, {
       method: "DELETE",
     })
-
       .then((res) => res.json())
       .then((data) => {
         // console.log("Deleted");
@@ -36,7 +35,7 @@ const Result = () => {
   };
 
   const updateData = (id, containerNum) => {
-    fetch(`http://localhost:5000/updatebox/${id}`, {
+    fetch(`https://packerman-backend.onrender.com/updatebox/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -51,7 +50,7 @@ const Result = () => {
 
   //Add boxes to log
   const addLog = (containerNum, obj) => {
-    fetch("http://localhost:5000/addlog", {
+    fetch("https://packerman-backend.onrender.com/addlog", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
