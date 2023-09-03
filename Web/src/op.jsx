@@ -115,7 +115,7 @@ const Op = () => {
         </div>
         <p className="warning">*Maximum weight of the container is 600 Kg.</p>
         <p className="warning">
-          *Maximum volume of the container is 500 cubic metres
+          *Maximum volume of the container is 500 m3.
         </p>
       </div>
       <div className="center-container">
