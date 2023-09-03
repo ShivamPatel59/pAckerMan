@@ -50,17 +50,6 @@ const Op = () => {
         setloading(false);
       });
   };
-  // Delete box from database
-  const deleteData = (id) => {
-    fetch(`http://localhost:5000/deletebox/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Deleted");
-        // console.log(data);
-      });
-  };
 
   React.useEffect(() => {
     getData();
