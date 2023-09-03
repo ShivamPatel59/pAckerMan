@@ -66,3 +66,8 @@ input[type="radio"] {
 .btn:hover {
     background-color: #000001;
 }
+
+.warning{
+    color: rgba(255, 0, 0, 0.646);
+    line-height: 0;
+}

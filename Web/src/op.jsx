@@ -9,7 +9,7 @@ const Op = () => {
   };
   const [loading, setloading] = React.useState(true);
   const sendData = () => {
-    fetch("http://localhost:5000/addbox", {
+    fetch("https://packerman-backend.onrender.com/addbox", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(state),
@@ -22,7 +22,7 @@ const Op = () => {
   };
   const [data, setData] = React.useState([]);
   const getData = () => {
-    fetch("http://localhost:5000/getbox", {
+    fetch("https://packerman-backend.onrender.com/getbox", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -32,7 +32,18 @@ const Op = () => {
           (item) => item.containerNum === ""
         );
         setData(filteredData);
-    setloading(false);
+        setloading(false);
+      });
+  };
+  // Delete box from database
+  const deleteData = (id) => {
+    fetch(`https://packerman-backend.onrender.com/deletebox/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Deleted");
+        // console.log(data);
       });
   };
 
@@ -77,11 +88,12 @@ const Op = () => {
           <label htmlFor="large">Large</label>
         </div>
         <div className="num-container">
-          <label htmlFor="weightip"> Weight </label>
+          <label htmlFor="weightip"> Weight (in Kg)</label>
           <input
             type="number"
             id="weightip"
             name="weight"
+            value={state.weight}
             onChange={(e) => {
               handleChange(e);
             }}
@@ -91,11 +103,14 @@ const Op = () => {
             type="number"
             id="priceip"
             name="price"
+            value={state.price}
             onChange={(e) => {
               handleChange(e);
             }}
           />
         </div>
+        <p className="warning">*Maximum weight of the container is 600 Kg.</p>
+        <p className="warning">*Maximum volume of the container is 500 cubic metres</p>
       </div>
       <div className="center-container">
         <button
@@ -104,16 +119,15 @@ const Op = () => {
           className="btn"
           onClick={() => {
             // console.log(state);
-            if(data.length>=30){
+            if (data.length >= 35) {
               alert("Inventory is full");
-            }
-            else if (state.type && state.weight && state.price) {
+            } else if (state.type && state.weight && state.price) {
               sendData();
-            } 
-            else {
+              state.weight = "";
+              state.price = "";
+            } else {
               alert("Please fill all the fields");
             }
-            setstate({});
           }}
         >
           Add
@@ -124,7 +138,11 @@ const Op = () => {
           </button>
         </a>
       </div>
-      {loading ? <LoadingPage /> : <Table data={data} />}
+      {loading ? (
+        <LoadingPage />
+      ) : (
+        <Table data={data} deleteData={deleteData} />
+      )}
 
       {/* <div className="center-container">
         
