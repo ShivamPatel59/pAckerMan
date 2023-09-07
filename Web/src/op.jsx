@@ -125,8 +125,8 @@ const Op = () => {
               alert("Inventory is full");
             } else if (state.type && state.weight && state.price) {
               sendData();
-              state.weight = "";
-              state.price = "";
+              //state.weight = "";  // dont flush the data states
+              //state.price = "";
             } else {
               alert("Please fill all the fields");
             }
